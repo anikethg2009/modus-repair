@@ -18,18 +18,19 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 80,
-          background: "#132a41",
-          color: "white",
+          background: "#f4f1ea",
+          color: "#16140f",
+          borderLeft: "24px solid #ff5a1f",
         }}
       >
-        <div style={{ fontSize: 88, fontWeight: 700 }}>{site.name}</div>
-        <div style={{ fontSize: 40, marginTop: 20, color: "#dce7f2" }}>
+        <div style={{ fontSize: 96, fontWeight: 700, letterSpacing: -3 }}>{site.name}</div>
+        <div style={{ fontSize: 40, marginTop: 20, color: "#5e594f" }}>
           Phone, laptop, console, and household repair
         </div>
-        <div style={{ fontSize: 34, marginTop: 40, color: "#fdba74" }}>
+        <div style={{ fontSize: 34, marginTop: 48, paddingTop: 24, borderTop: "2px solid #16140f" }}>
           {`Free diagnostic · ${site.contact.phoneDisplay}`}
         </div>
-        <div style={{ fontSize: 30, marginTop: 12, color: "#dce7f2" }}>{site.serviceArea}</div>
+        <div style={{ fontSize: 30, marginTop: 12, color: "#5e594f" }}>{site.serviceArea}</div>
       </div>
     ),
     size,

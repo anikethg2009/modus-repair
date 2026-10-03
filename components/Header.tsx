@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { site } from "@/content/site";
 import { navLinks } from "./nav";
+import RegMark from "./RegMark";
 
 export default function Header() {
   const pathname = usePathname();
@@ -12,41 +13,38 @@ export default function Header() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-        <Link href="/" className="flex items-center gap-2" onClick={close}>
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-800 text-sm font-bold text-white">
-            MR
-          </span>
-          <span className="text-lg font-semibold tracking-tight text-brand-900">{site.name}</span>
+    <header className="sticky top-0 z-40 border-b border-ink bg-paper">
+      <div className="wrap flex h-16 items-center justify-between gap-4">
+        <Link href="/" className="flex items-center gap-2.5" onClick={close}>
+          <RegMark size={18} className="text-signal" />
+          <span className="font-display text-[1.05rem] font-bold uppercase tracking-[-0.01em]">{site.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
-          {navLinks.map((l) => (
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
+          {navLinks.map((l, i) => (
             <Link
               key={l.href}
               href={l.href}
               aria-current={pathname === l.href ? "page" : undefined}
-              className={`text-sm font-medium hover:text-brand-600 ${
-                pathname === l.href ? "text-brand-700" : "text-slate-600"
+              className={`font-mono text-xs font-medium uppercase tracking-[0.06em] underline-offset-[6px] hover:underline ${
+                pathname === l.href ? "underline decoration-signal decoration-2" : ""
               }`}
             >
+              <span className="mr-1.5 text-ink-muted">0{i + 1}</span>
               {l.label}
             </Link>
           ))}
-          <a href={site.contact.phoneHref} className="text-sm font-semibold text-brand-800 hover:text-brand-600">
+          <a href={site.contact.phoneHref} className="font-mono text-sm font-medium tabular-nums hover:underline">
             {site.contact.phoneDisplay}
           </a>
-          <Link
-            href="/request"
-            className="rounded-lg bg-accent-600 px-4 py-2 text-sm font-semibold text-white hover:bg-accent-700"
-          >
+          <Link href="/request" className="btn btn-primary !py-2.5">
             Request a Repair
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1 md:hidden">
-          <a href={site.contact.phoneHref} className="px-2 text-sm font-semibold text-brand-800">
+        <div className="flex items-center gap-4 md:hidden">
+          {/* Hidden on the narrowest phones; the bottom bar and hero both offer calling. */}
+          <a href={site.contact.phoneHref} className="hidden font-mono text-xs font-medium tabular-nums min-[400px]:inline">
             {site.contact.phoneDisplay}
           </a>
           <button
@@ -54,35 +52,35 @@ export default function Header() {
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="rounded-md p-2 text-slate-700 hover:bg-slate-100"
+            className="border border-ink px-2.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]"
           >
-            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-            </svg>
+            {open ? "Close" : "Menu"}
           </button>
         </div>
       </div>
 
       {open && (
-        <nav id="mobile-menu" className="border-t border-slate-200 bg-white px-4 py-3 md:hidden" aria-label="Mobile">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={close}
-              className="block rounded-md px-2 py-3 text-base font-medium text-slate-700 hover:bg-slate-50"
-            >
-              {l.label}
+        <nav id="mobile-menu" className="border-t border-ink bg-paper md:hidden" aria-label="Mobile">
+          <ul className="wrap">
+            {navLinks.map((l, i) => (
+              <li key={l.href} className="border-b border-rule">
+                <Link
+                  href={l.href}
+                  onClick={close}
+                  aria-current={pathname === l.href ? "page" : undefined}
+                  className="flex items-baseline gap-4 py-4"
+                >
+                  <span className="font-mono text-xs text-ink-muted">0{i + 1}</span>
+                  <span className="font-display text-2xl font-bold tracking-[-0.01em]">{l.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="wrap py-5">
+            <Link href="/request" onClick={close} className="btn btn-primary w-full">
+              Request a Repair
             </Link>
-          ))}
-          <Link
-            href="/request"
-            onClick={close}
-            className="mt-2 block rounded-lg bg-accent-600 px-4 py-3 text-center font-semibold text-white"
-          >
-            Request a Repair
-          </Link>
+          </div>
         </nav>
       )}
     </header>

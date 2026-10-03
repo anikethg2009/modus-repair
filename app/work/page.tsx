@@ -13,14 +13,14 @@ export const metadata = pageMetadata(
 export default function WorkPage() {
   return (
     <>
-      <PageHeader title="Our work" intro="A sample of recent repairs, before and after." />
+      <PageHeader index="02" label="Work" title="Our work" intro="A sample of recent repairs, before and after." />
 
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-2">
-        {portfolio.map((item) => (
-          <article key={item.title} className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-            <div className="grid grid-cols-2">
+      <div className="wrap pb-16 md:pb-24">
+        {portfolio.map((item, i) => (
+          <article key={item.title} className="grid gap-8 border-b border-ink py-10 md:grid-cols-12 md:gap-10 md:py-14">
+            <div className="grid grid-cols-2 gap-px border border-ink bg-ink md:col-span-7">
               {(["before", "after"] as const).map((kind) => (
-                <div key={kind} className="relative">
+                <div key={kind} className="relative bg-paper">
                   <Image
                     src={item[kind]}
                     alt={`${item.title}, ${kind} repair`}
@@ -28,16 +28,18 @@ export default function WorkPage() {
                     height={1254}
                     className="aspect-square w-full object-cover"
                   />
-                  <span className="absolute left-2 top-2 rounded bg-black/60 px-2 py-0.5 text-xs font-semibold uppercase text-white">
+                  <span className="eyebrow absolute left-0 top-0 border-b border-r border-ink bg-paper px-2 py-1 !text-ink">
                     {kind}
                   </span>
                 </div>
               ))}
             </div>
-            <div className="p-5">
-              <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">{item.category}</p>
-              <h2 className="mt-1 text-lg font-semibold text-brand-900">{item.title}</h2>
-              <p className="mt-2 text-slate-600">{item.description}</p>
+            <div className="md:col-span-5 md:pt-1">
+              <p className="eyebrow">
+                No. {String(i + 1).padStart(2, "0")} · {item.category}
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold leading-tight tracking-[-0.02em]">{item.title}</h2>
+              <p className="mt-3 text-ink-muted">{item.description}</p>
             </div>
           </article>
         ))}

@@ -2,20 +2,99 @@
 
 @theme inline {
   --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 @theme {
-  --color-brand-50: #f0f5fa;
-  --color-brand-100: #dce7f2;
-  --color-brand-600: #2b5a8a;
-  --color-brand-700: #22496f;
-  --color-brand-800: #1b3a59;
-  --color-brand-900: #132a41;
-  --color-accent-600: #c2410c;
-  --color-accent-700: #9a3412;
+  --color-paper: #f4f1ea;
+  --color-paper-2: #ebe6db;
+  --color-ink: #16140f;
+  --color-ink-muted: #5e594f;
+  --color-rule: #d3ccbe;
+  --color-signal: #ff5a1f;
+  --color-signal-deep: #eb4a10;
+}
+
+html {
+  background: var(--color-paper);
 }
 
 body {
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 48rem) {
+    .wrap {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* Small mono label, e.g. "01 / SERVICES" */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.95rem 1.4rem;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+  .btn-primary {
+    background: var(--color-signal);
+    border-color: var(--color-signal);
+    color: var(--color-ink);
+  }
+  .btn-primary:hover {
+    background: var(--color-signal-deep);
+    border-color: var(--color-signal-deep);
+  }
+  .btn-secondary {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+  .btn-secondary:hover {
+    background: color-mix(in srgb, var(--color-ink) 6%, transparent);
+  }
+  .btn-secondary-inverse {
+    border-color: color-mix(in srgb, var(--color-paper) 55%, transparent);
+    color: var(--color-paper);
+  }
+  .btn-secondary-inverse:hover {
+    background: color-mix(in srgb, var(--color-paper) 10%, transparent);
+  }
 }

@@ -14,11 +14,12 @@ export default function AboutPage() {
 
   return (
     <>
-      <PageHeader title="About Modus Repair" intro={site.serviceArea} />
+      <PageHeader index="03" label="About" title="About Modus Repair" intro={site.serviceArea} />
 
-      <div className="mx-auto max-w-3xl px-4 py-12">
+      <div className="wrap grid gap-6 py-16 md:grid-cols-12 md:gap-10 md:py-24">
+        <p className="eyebrow md:col-span-4">The shop</p>
         {/* TODO: Personalize this story in your own words. Consider adding a photo of yourself. */}
-        <div className="space-y-4 text-lg text-slate-700">
+        <div className="max-w-2xl space-y-5 text-lg leading-relaxed md:col-span-8 md:text-xl">
           <p>
             {greeting} Modus Repair is a one-person shop. When you bring me a device, I&apos;m the one who diagnoses
             it, quotes it, and fixes it.
@@ -33,17 +34,24 @@ export default function AboutPage() {
             I&apos;ll tell you.
           </p>
         </div>
-
-        <h2 className="mt-12 text-2xl font-bold text-brand-900">Why a local solo tech beats mail-in or big box</h2>
-        <div className="mt-6 space-y-6">
-          {whyLocal.map((w) => (
-            <div key={w.title} className="rounded-xl border border-slate-200 p-5">
-              <h3 className="text-lg font-semibold text-brand-800">{w.title}</h3>
-              <p className="mt-2 text-slate-600">{w.text}</p>
-            </div>
-          ))}
-        </div>
       </div>
+
+      <section className="border-t border-ink">
+        <div className="wrap grid gap-10 py-16 md:grid-cols-12 md:py-24">
+          <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-[-0.02em] md:col-span-4 md:text-4xl">
+            Why a local solo tech beats mail-in or big box
+          </h2>
+          <ol className="border-t border-ink md:col-span-8">
+            {whyLocal.map((w, i) => (
+              <li key={w.title} className="grid grid-cols-[2rem_1fr] gap-x-4 border-b border-rule py-6 md:grid-cols-[3rem_12rem_1fr] md:gap-x-6">
+                <span className="pt-1.5 font-mono text-xs text-ink-muted">0{i + 1}</span>
+                <h3 className="font-display text-2xl font-bold tracking-[-0.01em]">{w.title}</h3>
+                <p className="col-start-2 mt-2 text-ink-muted md:col-start-3 md:mt-0 md:pt-1">{w.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       <CtaBand />
     </>

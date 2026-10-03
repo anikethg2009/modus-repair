@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { site, serviceCategories } from "@/content/site";
 import Header from "@/components/Header";
@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import MobileCallBar from "@/components/MobileCallBar";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"] });
+const jetbrainsMono = JetBrains_Mono({ variable: "--font-jetbrains-mono", subsets: ["latin"] });
 
 const defaultTitle = `${site.name} | Electronics Repair in Loudoun County, VA`;
 
@@ -69,8 +71,11 @@ const localBusinessJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col pb-14 font-sans md:pb-0">
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col pb-[57px] font-sans md:pb-0">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
