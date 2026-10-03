@@ -78,7 +78,7 @@ export default function Home() {
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {portfolio.slice(0, 3).map((item) => (
               <figure key={item.title} className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-                <Image src={item.after} alt={`${item.title}, after repair`} width={800} height={600} className="aspect-[4/3] w-full object-cover" />
+                <Image src={item.after} alt={`${item.title}, after repair`} width={1254} height={1254} className="aspect-square w-full object-cover" />
                 <figcaption className="p-4">
                   <p className="font-semibold text-brand-900">{item.title}</p>
                   <p className="mt-1 text-sm text-slate-600">{item.description}</p>

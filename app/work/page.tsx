@@ -24,9 +24,9 @@ export default function WorkPage() {
                   <Image
                     src={item[kind]}
                     alt={`${item.title}, ${kind} repair`}
-                    width={800}
-                    height={600}
-                    className="aspect-[4/3] w-full object-cover"
+                    width={1254}
+                    height={1254}
+                    className="aspect-square w-full object-cover"
                   />
                   <span className="absolute left-2 top-2 rounded bg-black/60 px-2 py-0.5 text-xs font-semibold uppercase text-white">
                     {kind}

@@ -91,49 +91,15 @@ export type PortfolioItem = {
   after: string;
 };
 
-// TODO: Replace these placeholder entries and images with your real past repairs.
+// Add new repairs to the top of this list. The first three also appear on the home page.
 export const portfolio: PortfolioItem[] = [
   {
-    title: "iPhone 13 cracked screen",
+    // TODO: Add the phone model to the title (e.g. "iPhone 13 cracked screen replacement").
+    title: "Cracked screen replacement",
     category: "Phones and tablets",
-    description: "Shattered display replaced with a new panel. Face ID and True Tone working. Same-day turnaround.",
-    before: "/portfolio/placeholder-1-before.svg",
-    after: "/portfolio/placeholder-1-after.svg",
-  },
-  {
-    title: "PS5 HDMI port replacement",
-    category: "Game consoles",
-    description: "Bent HDMI port caused no signal. Replaced the port and tested 4K output.",
-    before: "/portfolio/placeholder-2-before.svg",
-    after: "/portfolio/placeholder-2-after.svg",
-  },
-  {
-    title: "MacBook Air keyboard",
-    category: "Laptops and computers",
-    description: "Liquid damage left several keys dead. Keyboard replaced and the board cleaned.",
-    before: "/portfolio/placeholder-3-before.svg",
-    after: "/portfolio/placeholder-3-after.svg",
-  },
-  {
-    title: "Joy-Con stick drift",
-    category: "Controllers",
-    description: "Left stick drifting in every game. Swapped in a new analog stick module.",
-    before: "/portfolio/placeholder-4-before.svg",
-    after: "/portfolio/placeholder-4-after.svg",
-  },
-  {
-    title: "Samsung charging port",
-    category: "Phones and tablets",
-    description: "Phone would only charge at an angle. Cleaned and replaced the USB-C port.",
-    before: "/portfolio/placeholder-5-before.svg",
-    after: "/portfolio/placeholder-5-after.svg",
-  },
-  {
-    title: "Stand mixer won't power on",
-    category: "Household items",
-    description: "Traced a broken wire in the power cord. Repaired and safety tested.",
-    before: "/portfolio/placeholder-6-before.svg",
-    after: "/portfolio/placeholder-6-after.svg",
+    description: "Shattered front glass replaced with a new screen. Back to a clean, crack-free display.",
+    before: "/portfolio/56ef9399-e146-4964-ac5a-d98be64348e5.png",
+    after: "/portfolio/de1cd606-0673-4b3e-83be-b4fda6a143f4.png",
   },
 ];
 
