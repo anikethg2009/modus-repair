@@ -41,17 +41,16 @@ export default function Home() {
       </section>
 
       <section aria-label="Track record" className="border-y border-ink">
-        <dl className="wrap grid grid-cols-2 md:grid-cols-4">
-          {stats.map((s, i) => (
+        {/* Phones: full-bleed ruled rows. Desktop: equal columns split by vertical rules. */}
+        <dl className="mx-auto max-w-[80rem] md:grid md:grid-cols-3 md:px-10">
+          {stats.map((s) => (
             <div
               key={s.label}
-              className={`py-7 md:py-10 ${i % 2 === 0 ? "border-r border-ink pr-4" : "pl-5"} ${
-                i < 2 ? "border-b border-ink md:border-b-0" : ""
-              } md:border-r md:px-6 md:first:pl-0 md:last:border-r-0`}
+              className="flex items-baseline justify-between gap-6 border-b border-ink px-5 py-6 last:border-b-0 md:block md:border-b-0 md:border-r md:px-8 md:py-10 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
             >
               <dt className="sr-only">{s.label}</dt>
-              <dd className="font-display text-[1.75rem] font-bold leading-none min-[400px]:text-[2rem] tracking-[-0.03em] md:text-6xl">{s.value}</dd>
-              <dd className="eyebrow mt-3">{s.label}</dd>
+              <dd className="font-display text-4xl font-bold leading-none tracking-[-0.03em] md:text-6xl">{s.value}</dd>
+              <dd className="eyebrow text-right md:mt-3 md:text-left">{s.label}</dd>
             </div>
           ))}
         </dl>

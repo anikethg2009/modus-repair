@@ -26,7 +26,6 @@ export const site = {
 
 export const stats = [
   { value: "Hundreds", label: "of customers served" },
-  { value: "$4,000+", label: "in repairs completed" },
   { value: "Free", label: "diagnostic on every device" },
   { value: "Local", label: "Loudoun County based" },
 ];
