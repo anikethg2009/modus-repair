@@ -10,28 +10,30 @@ export const metadata = pageMetadata(
 );
 
 export default function AboutPage() {
-  const greeting = site.owner.firstName ? `Hi, I'm ${site.owner.firstName}.` : "Hi there.";
-
   return (
     <>
       <PageHeader index="03" label="About" title="About Modus Repair" intro={site.serviceArea} />
 
       <div className="wrap grid gap-6 py-16 md:grid-cols-12 md:gap-10 md:py-24">
         <p className="eyebrow md:col-span-4">The shop</p>
-        {/* TODO: Personalize this story in your own words. Consider adding a photo of yourself. */}
         <div className="max-w-2xl space-y-5 text-lg leading-relaxed md:col-span-8 md:text-xl">
           <p>
-            {greeting} Modus Repair is a one-person shop. When you bring me a device, I&apos;m the one who diagnoses
-            it, quotes it, and fixes it.
+            Hi, I&apos;m {site.owner.firstName} Guttikonda. I&apos;m a student at the Academies of Loudoun, where I
+            study IT, and I run Modus Repair out of Loudoun County.
+          </p>
+          {/* TODO: Add one or two sentences on how you got started fixing things. */}
+          <p>
+            Since then I&apos;ve fixed devices for hundreds of customers. Phones, laptops, game consoles,
+            controllers, and plenty of household items have all come across my bench.
           </p>
           <p>
-            I started fixing things for friends and family, and word of mouth did the rest. I&apos;ve now helped
-            hundreds of customers around Loudoun County get their phones, laptops, consoles, and household items
-            working again.
+            When you bring me something, I&apos;m the one who looks at it, quotes it, and fixes it. There&apos;s no
+            front desk and no mail-in queue. I&apos;ll tell you what&apos;s wrong, what it&apos;ll cost, and whether
+            it&apos;s even worth fixing before I start any work.
           </p>
           <p>
-            Every repair starts with a free diagnostic and an honest quote. If something isn&apos;t worth fixing,
-            I&apos;ll tell you.
+            Because I&apos;m in school, I take repairs on weekday evenings and weekends. The fastest way to reach me
+            is a call or text.
           </p>
         </div>
       </div>

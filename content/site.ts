@@ -12,8 +12,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://modus-repair.vercel.app",
   serviceArea: "Serving Loudoun County and nearby areas.",
   owner: {
-    // TODO: Add your first name so the About page feels personal (e.g. "Hi, I'm Alex").
-    firstName: "",
+    firstName: "Aniketh",
   },
   contact: {
     email: "repairmodus@gmail.com",
