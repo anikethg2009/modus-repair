@@ -38,6 +38,7 @@ const localBusinessJsonLd = {
   email: site.contact.email,
   image: `${site.url}/opengraph-image`,
   priceRange: "$$",
+  founder: { "@type": "Person", name: `${site.owner.firstName} ${site.owner.lastName}` },
   // TODO: Add your city (e.g. addressLocality: "Ashburn") if you're comfortable listing it.
   address: {
     "@type": "PostalAddress",

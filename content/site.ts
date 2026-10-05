@@ -13,6 +13,7 @@ export const site = {
   serviceArea: "Serving Loudoun County and nearby areas.",
   owner: {
     firstName: "Aniketh",
+    lastName: "Guttikonda",
   },
   contact: {
     email: "repairmodus@gmail.com",

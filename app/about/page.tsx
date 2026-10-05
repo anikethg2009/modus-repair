@@ -5,7 +5,7 @@ import CtaBand from "@/components/CtaBand";
 
 export const metadata = pageMetadata(
   "About",
-  "Modus Repair is a local, one-person repair shop in Loudoun County, VA. Faster, cheaper, and more personal than mail-in or big-box repair.",
+  `Modus Repair is a one-person repair shop in Loudoun County, VA, run by ${site.owner.firstName} ${site.owner.lastName}. Faster, cheaper, and more personal than mail-in or big-box repair.`,
   "/about",
 );
 
@@ -18,12 +18,11 @@ export default function AboutPage() {
         <p className="eyebrow md:col-span-4">The shop</p>
         <div className="max-w-2xl space-y-5 text-lg leading-relaxed md:col-span-8 md:text-xl">
           <p>
-            Hi, I&apos;m {site.owner.firstName} Guttikonda. I&apos;m a student at the Academies of Loudoun, where I
+            Hi, I&apos;m {site.owner.firstName} {site.owner.lastName}. I&apos;m a student at the Academies of Loudoun, where I
             study IT, and I run Modus Repair out of Loudoun County.
           </p>
-          {/* TODO: Add one or two sentences on how you got started fixing things. */}
           <p>
-            Since then I&apos;ve fixed devices for hundreds of customers. Phones, laptops, game consoles,
+            I&apos;ve fixed devices for hundreds of customers. Phones, laptops, game consoles,
             controllers, and plenty of household items have all come across my bench.
           </p>
           <p>
